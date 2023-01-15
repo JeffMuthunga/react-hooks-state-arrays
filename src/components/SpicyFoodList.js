@@ -29,6 +29,19 @@ function SpicyFoodList() {
     setFilterBy(e.target.value)
     setFoods(foodsToDisplay)
   }
+  function SelectComponent(){
+
+    return (
+      <select name="filter" onChange={handleFilterChange}>
+        <option value="All">All</option>
+        <option value="American">American</option>
+        <option value="Sichuan">Sichuan</option>
+        <option value="Thai">Thai</option>
+        <option value="Mexican">Mexican</option>
+      </select>
+
+    )
+  }
   const foodsToDisplay= foods.filter((food)=>{
     if(filterBy=== "All"){
       return true
@@ -46,14 +59,7 @@ function SpicyFoodList() {
   return (
     <div>
       <button onClick={handleAddFood}>Add New Food</button>
-      <select name="filter" onChange={handleFilterChange}>
-        <option value="All">All</option>
-        <option value="American">American</option>
-        <option value="Sichuan">Sichuan</option>
-        <option value="Thai">Thai</option>
-        <option value="Mexican">Mexican</option>
-      </select>
-
+      <SelectComponent/>
       <ul>{foodList}</ul>
     </div>
   );
